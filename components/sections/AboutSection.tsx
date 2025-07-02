@@ -45,6 +45,13 @@ export default function AboutSection() {
     { value: "3.34", label: "GPA", color: "from-purple-500 to-pink-500", icon: "📊" }
   ];
 
+  const skills = [
+    { name: "UX/UI Design", icon: "🎨", color: "from-blue-500 to-blue-600" },
+    { name: "Figma", icon: "📐", color: "from-purple-500 to-purple-600" },
+    { name: "Strategic Thinking", icon: "🧠", color: "from-indigo-500 to-indigo-600" },
+    { name: "Communication", icon: "💬", color: "from-cyan-500 to-cyan-600" }
+  ];
+
   return (
     <section id="about-section" className="py-20 px-4 relative overflow-hidden">
       {/* Enhanced Background */}
@@ -121,16 +128,19 @@ export default function AboutSection() {
                 <div className="relative border-2 border-blue-500/50 rounded-3xl p-8 bg-slate-800/40 backdrop-blur-sm group-hover:bg-slate-800/60 transition-all duration-500 group-hover:border-blue-400/70">
                   <div className="space-y-6 text-slate-300">
                     <p className="group-hover:text-slate-200 transition-colors duration-300 leading-relaxed">
-                      I'm a passionate UX/UI Designer currently pursuing my Bachelor's in 
-                      Computer Science at Paragon International University. With a 75% 
-                      scholarship and strong academic record, I combine technical 
-                      knowledge with creative design thinking.
+                      I'm a passionate <span className="text-blue-400 font-semibold">UX/UI Designer</span> currently pursuing my Bachelor's in 
+                      Computer Science at Paragon International University. With a 75% scholarship and strong academic record, 
+                      I combine technical knowledge with creative design thinking to create meaningful digital experiences.
                     </p>
                     <p className="group-hover:text-slate-200 transition-colors duration-300 leading-relaxed">
-                      My focus is on creating intuitive digital experiences that solve real 
-                      user problems. I specialize in user research, interface design, and 
-                      turning complex challenges into simple, elegant solutions through 
-                      user-centered design principles.
+                      My expertise spans <span className="text-purple-400 font-semibold">wireframing, mockups, and user flows</span> using tools like 
+                      <span className="text-green-400 font-semibold"> Figma, Canva, and Lucid Charts</span>. I excel in creating 
+                      intuitive designs that ensure user needs align with business objectives.
+                    </p>
+                    <p className="group-hover:text-slate-200 transition-colors duration-300 leading-relaxed">
+                      What sets me apart is my <span className="text-cyan-400 font-semibold">strategic thinking and system thinking approach</span>. 
+                      I don't just design interfaces—I create comprehensive design systems that scale. My strong communication skills 
+                      help me collaborate effectively with cross-functional teams and stakeholders.
                     </p>
                   </div>
                 </div>
@@ -150,9 +160,10 @@ export default function AboutSection() {
               </div>
             </div>
 
-            {/* Right side - Enhanced Interactive Stats Grid */}
+            {/* Right side - Stats and Skills */}
             <div className={`transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
-              <div className="grid grid-cols-2 gap-6">
+              {/* Stats Grid */}
+              <div className="grid grid-cols-2 gap-6 mb-8">
                 {stats.map((stat, index) => (
                   <div 
                     key={index}
@@ -201,28 +212,36 @@ export default function AboutSection() {
                 ))}
               </div>
 
-              {/* Additional Info Cards */}
-              {/* <div className="mt-8 space-y-4">
-                <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 p-4 rounded-xl border border-blue-500/20 hover:border-blue-400/30 transition-all duration-300">
-                  <div className="flex items-center gap-3">
-                    <span className="text-xl">🏫</span>
-                    <div>
-                      <h4 className="font-semibold text-blue-400">Education</h4>
-                      <p className="text-sm text-slate-400">Senior, Computer Science, Paragon International University</p>
+              {/* Skills Section - Simple with minimal animation */}
+              <div className="space-y-4">
+                <h3 className="text-xl font-bold text-slate-200 mb-4 text-center">Core Skills</h3>
+                <div className="grid grid-cols-2 gap-3">
+                  {skills.map((skill, index) => (
+                    <div 
+                      key={index}
+                      className={`relative bg-slate-800/40 backdrop-blur-sm rounded-lg p-3 border border-slate-700/50 transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
+                      style={{ animationDelay: `${800 + index * 100}ms` }}
+                    >
+                      <div className="flex items-center gap-2">
+                        <span className="text-sm animate-pulse" style={{ animationDelay: `${index * 200}ms` }}>
+                          {skill.icon}
+                        </span>
+                        <span className="text-slate-300 font-medium text-xs">{skill.name}</span>
+                      </div>
+                      
+                      {/* Simple static progress bar */}
+                      <div className="h-1 bg-slate-700 rounded-full overflow-hidden mt-2">
+                        <div 
+                          className={`h-full bg-gradient-to-r ${skill.color} rounded-full transition-all duration-2000 ${
+                            isVisible ? 'w-full' : 'w-0'
+                          }`}
+                          style={{ transitionDelay: `${1000 + index * 150}ms` }}
+                        />
+                      </div>
                     </div>
-                  </div>
+                  ))}
                 </div>
-                
-                <div className="bg-gradient-to-r from-purple-500/10 to-indigo-500/10 p-4 rounded-xl border border-purple-500/20 hover:border-purple-400/30 transition-all duration-300">
-                  <div className="flex items-center gap-3">
-                    <span className="text-xl">🎯</span>
-                    <div>
-                      <h4 className="font-semibold text-purple-400">Focus</h4>
-                      <p className="text-sm text-slate-400">User-Centered Design & Interface Development</p>
-                    </div>
-                  </div>
-                </div> 
-              </div> */}
+              </div>
             </div>
           </div>
         </div>

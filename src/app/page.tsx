@@ -5,6 +5,8 @@ import ProjectsSection from '../../components/sections/ProjectSection';
 import Project2Section from '../../components/sections/Project2Section';
 import Project3Section from '../../components/sections/Project3Section';
 import ContactSection from '../../components/sections/ContactSection';
+import Project4Section from '../../components/sections/Project4Section';
+
 
 export default function Home() {
   return (
@@ -15,7 +17,9 @@ export default function Home() {
       <ProjectsSection />
       <Project2Section />
       <Project3Section />
+      <Project4Section />
       <ContactSection />
+
     </div>
   );
 }
